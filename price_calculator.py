@@ -21,7 +21,10 @@ def final_price(price, quantity, discount_pct, tax_pct):
       3. Aplicar el impuesto al resultado usando apply_tax.
       4. Retornar el resultado redondeado a 2 decimales usando round().
     """
-    return "ANSWER HERE"  # Remove this line and implement
+    subtotal = price * quantity
+    condescuento = apply_discount(subtotal, discount_pct)
+    impuesto = apply_tax(condescuento, tax_pct)
+    return round(impuesto, 2)
 
 def best_deal(price_a, qty_a, disc_a, price_b, qty_b, disc_b, tax_pct):
     """
@@ -31,4 +34,12 @@ def best_deal(price_a, qty_a, disc_a, price_b, qty_b, disc_b, tax_pct):
     Si son iguales, retorna "A".
     Debe USAR la función final_price para resolver el ejercicio.
     """
-    return "ANSWER HERE"  # Remove this line and implement
+    preciofinala = final_price(price_a, qty_a, disc_a, tax_pct)
+    preciofinalb = final_price(price_b, qty_b, disc_b, tax_pct)
+    if preciofinala > preciofinalb :
+        return "B"
+    elif preciofinala < preciofinalb :
+        return "A"
+    elif preciofinala == preciofinalb:
+        return "A"
+
